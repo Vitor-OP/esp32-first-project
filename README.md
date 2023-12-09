@@ -1,4 +1,4 @@
-#ESP-32 EDUCATIONAL PROJECT
+# ESP-32 EDUCATIONAL PROJECT
 The idea is to create a simple clock that also displays the temperature using multiple ESP32 features, such as dual-core, internet connection, internal RTC, I2C, and interrupts.
 Future features:
 - Interrupt dictating what is being displayed in the OLED.
