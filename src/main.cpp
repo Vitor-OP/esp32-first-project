@@ -79,27 +79,36 @@ void core0Task(void *parameter) { // takes care of the display
   int hour = 0;
   int minute = 0;
   int second = 0;
+  int last_sec = 0;
 
   while (1) {
   Serial.println("Time");
 
-    for(int i = 0; i < 20; i++){
+    while(1){
       second = rtc.getSecond();
       minute = rtc.getMinute();
       hour = rtc.getHour();
       display.clearDisplay();
       display_time(hour, minute, second);
-      delay(500);
+      if(second >= last_sec + 10){
+        last_sec = second;
+        break;
+      }
+      delay(50);
     }
 
 
     Serial.println("Temperature");
-    for(int i = 0; i < 20; i++) {
+    while(1){
       temperature = take_temperature(temperature); // Take the temperature and stores the last one
       display.clearDisplay();
       display_temperature(temperature);
-      Serial.print(i);
-      delay(500);
+      second = rtc.getSecond();
+      if(second >= last_sec + 10){
+        last_sec = second;
+        break;
+      }
+      delay(50);
     }
   }
 }
