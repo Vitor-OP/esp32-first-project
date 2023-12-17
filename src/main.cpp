@@ -5,8 +5,6 @@
 #include <DHT.h>
 #include <Adafruit_Sensor.h>
 #include <ESP32Time.h>
-#include <freertos/FreeRTOS.h>
-#include <freertos/semphr.h>
 
 #define pomodoro_trabalho 60 // 1 hour in milliseconds
 #define pomodoro_pausa 15 // 15 minutes in milliseconds
@@ -28,9 +26,6 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 volatile unsigned long lastInterruptTime1 = 0;
 volatile unsigned long lastInterruptTime2 = 0;
 const unsigned long debounceTime = 300; // debounce time in milliseconds
-
-// Declare a mutex
-SemaphoreHandle_t mutex;
 
 //for the timer
 volatile bool startStop = false;
@@ -93,7 +88,7 @@ void display_time(int hour, int minute, int second) {
 void display_timer(int minute, int second, int milliseconds) {
   display.setCursor(0, 8);
   display.setTextSize(2);
-  if(minute < 10)
+  if(abs(minute) < 10)
     display.print("0");
   display.print(minute);
   display.print(":");
@@ -214,8 +209,6 @@ void core1Task(void *parameter) { // takes care of the temperature and time
 }
 
 void setup() {
-  // Create a mutex
-  mutex = xSemaphoreCreateMutex();
   Serial.begin(115200);
   rtc.setTime(0, 0, 0, 9, 12, 2023);
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
