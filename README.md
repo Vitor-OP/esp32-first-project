@@ -8,8 +8,6 @@
 - Divides the task of displaying and the task of fetching values to each core (just to use parallel programming).
 - Interrupt of user button in esp32 to change what is being displayed in the OLED.
 
-Temperature mode:
-<img src="temperature.jpg" alt="Alt text" width="200"/>
+Temperature and chronometer mode:
 
-Chronometre mode:
-<img src="cronometre.jpg" alt="Alt text" width="500"/>
+<img src="temperature.jpg" alt="Alt text" width="250"/> <img src="chronometer.jpg" alt="Alt tex" width="250"/>
