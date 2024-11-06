@@ -6,4 +6,10 @@
 - Takes temperature from the thermometer module DTH22.
 - Displays it in the 128x32 OLED.
 - Divides the task of displaying and the task of fetching values to each core (just to use parallel programming).
-- Interrupt dictating what is being displayed in the OLED.
+- Interrupt of user button in esp32 to change what is being displayed in the OLED.
+
+Temperature mode:
+<img src="temperature.jpg" alt="Alt text" width="200"/>
+
+Chronometre mode:
+<img src="cronometre.jpg" alt="Alt text" width="500"/>
