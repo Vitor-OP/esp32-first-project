@@ -1,5 +1,5 @@
-# ESP-32 EDUCATIONAL PROJECT
-  The idea is to create a simple pomodoro methode clock that also displays the temperature using multiple ESP32 features, such as dual-core, internal RTC, I2C, and interrupts.
+# ESP-32 Pomodoro Clock
+  This is a pedagogical project aiming to utilize basic features of the microprocessor ESP32 to create a simple pomodoro methode clock that also displays the temperature using multiple ESP32 features, such as dual-core, internal RTC, I2C, and interrupts.
 
 ## Features:
 - Uses the internal RTC to count time from 0.
