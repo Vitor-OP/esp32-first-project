@@ -4,7 +4,7 @@
 ## Features:
 - Uses the internal RTC to count time from 0.
 - Takes temperature from the thermometer module DTH22.
-- Displays it in the 128x32 OLED.
+- Displays it in the 128x64 OLED.
 - Divides the task of displaying and the task of fetching values to each core (just to use parallel programming).
 - Interrupt of user button in esp32 to change what is being displayed in the OLED or reset the pomodoro clock.
 
